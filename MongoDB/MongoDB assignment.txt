@@ -1,0 +1,67 @@
+1.
+use gamesDB
+_______________
+2.
+db
+_______________
+3.
+db.createCollection("games")
+_______________
+4. 
+show collections
+_______________
+5.
+db.games.insertMany([
+{name:"PES 17", publisher:"KONAMI", year_released: "2016", rating:5},
+{name:"FIFA 20", publisher:"EA Sport", year_released: "2019", rating:4},
+{name:"PUBG", publisher:"Tecent", year_released: "2013", rating:2},
+{name:"Forza Horizon 4", publisher:"Microsoft", year_released: "2000", rating:1},
+{name:"CS : go", publisher:"Valve", year_released: "2020", rating:3}
+]);
+________________
+6.
+db.games.find()
+________________
+7.
+db.games.find().limit(3);
+________________
+8.
+db.games.find().sort({rating: -1}).limit(3);
+________________
+9. 
+db.games.find(
+   {$and: [
+       {rating: 5},
+       {year_released:{$gt: "2007"} }
+          ]
+   }
+);
+________________
+10.
+db.gamesDB.updateMany(
+{rating: 3}, 
+{$set: {rating:4}}
+);
+_________________
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
